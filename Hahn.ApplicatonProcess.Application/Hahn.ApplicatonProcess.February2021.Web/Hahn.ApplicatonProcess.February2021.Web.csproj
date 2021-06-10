@@ -12,4 +12,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Hahn.ApplicatonProcess.February2021.Data\Hahn.ApplicatonProcess.February2021.Data.csproj" />
+  </ItemGroup>
+
 </Project>

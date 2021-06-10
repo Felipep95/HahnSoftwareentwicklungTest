@@ -1,34 +1,36 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Threading.Tasks;
 
 namespace Hahn.ApplicatonProcess.February2021.Data
 {
     public sealed class UnityOfWork : IUnityOfWork
     {
-        //TODO create dbcontext
+        private readonly DbContext _context;
 
-        public UnityOfWork()
+        public UnityOfWork(DbContext context)
         {
-            
+            _context = context;
         }
 
         public void BeginTransaction()
         {
-            throw new NotImplementedException();
+            //TODO: implements logic
         }
 
-        public void Commit()
+        public async Task Commit()
         {
-            throw new NotImplementedException();
+            await _context.SaveChangesAsync();
         }
 
         public void Rollback()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _context.Dispose();
         }
     }
 }

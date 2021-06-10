@@ -9,11 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Web", "02 - Web", "{6F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Domain", "03 - Domain", "{C177AD01-BA58-44F1-8D8D-EBD915B60212}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.February2021.Data", "Hahn.ApplicatonProcess.February2021.Data\Hahn.ApplicatonProcess.February2021.Data.csproj", "{F904E61D-2237-490A-ACD8-BE922FAAC1C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicatonProcess.February2021.Data", "Hahn.ApplicatonProcess.February2021.Data\Hahn.ApplicatonProcess.February2021.Data.csproj", "{F904E61D-2237-490A-ACD8-BE922FAAC1C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.February2021.Domain", "Hahn.ApplicatonProcess.February2021.Domain\Hahn.ApplicatonProcess.February2021.Domain.csproj", "{3CF8EBB9-1B61-4C1B-87B0-341F9B4DC2B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicatonProcess.February2021.Domain", "Hahn.ApplicatonProcess.February2021.Domain\Hahn.ApplicatonProcess.February2021.Domain.csproj", "{3CF8EBB9-1B61-4C1B-87B0-341F9B4DC2B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.February2021.Web", "Hahn.ApplicatonProcess.February2021.Web\Hahn.ApplicatonProcess.February2021.Web.csproj", "{FD00D977-5D3D-4944-913E-F936215483E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicatonProcess.February2021.Web", "Hahn.ApplicatonProcess.February2021.Web\Hahn.ApplicatonProcess.February2021.Web.csproj", "{FD00D977-5D3D-4944-913E-F936215483E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

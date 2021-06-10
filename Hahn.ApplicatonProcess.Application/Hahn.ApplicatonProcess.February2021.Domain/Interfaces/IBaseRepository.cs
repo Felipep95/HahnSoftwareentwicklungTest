@@ -1,13 +1,15 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 
 namespace Hahn.ApplicatonProcess.February2021.Data.Repository
 {
     public interface IBaseRepository<T> where T : class
     {
-        T Find(int id);
-        IQueryable<T> List();
         void Add(T item);
-        void Remove(T item);
-        void Edit(T item);
+        Task<T> FindById(int id);
+        Task<IQueryable<T>> FindAll();
+        Task Edit(int id, T item);
+        Task Remove(int id);
+        
     }
 }
