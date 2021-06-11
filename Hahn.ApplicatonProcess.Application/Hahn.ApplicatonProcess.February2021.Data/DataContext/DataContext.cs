@@ -11,10 +11,15 @@ namespace Hahn.ApplicatonProcess.February2021.Data.Context
 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public DataContext(DbContextOptions<DataContext> options)
+            : base(options)
         {
-            optionsBuilder.UseInMemoryDatabase("ToAddMyConnectionString");//TODO insert my connection string
-        } 
+        }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseInMemoryDatabase("ToAddMyConnectionString");//TODO insert my connection string
+        //} 
 
         public DbSet<Asset> Assets { get; set; }
     }

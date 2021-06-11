@@ -20,7 +20,7 @@ namespace Hahn.ApplicatonProcess.February2021.Data.Repository
         {
             //TODO: create validator to check data before save on database
             _context.Assets.Add(asset);
-            _context.SaveChangesAsync();//TODO: replace for unity of work
+            //_context.SaveChangesAsync();//TODO: replace for unity of work
         }
 
         public async Task Edit(int id, Asset asset)
@@ -39,13 +39,14 @@ namespace Hahn.ApplicatonProcess.February2021.Data.Repository
             editAsset.broken = asset.broken;
             
             _context.Assets.Add(editAsset);
-            await _context.SaveChangesAsync();//TODO: replace for unity of work
+            //await _context.SaveChangesAsync();//TODO: replace for unity of work
         }
 
         public async Task<IQueryable<Asset>> FindAll()
         {
-            var assets = await _context.Assets.ToListAsync();
-            return (IQueryable<Asset>)assets;
+            //var assets = await _context.Assets.ToListAsync();
+            return (IQueryable<Asset>) await _context.Assets.ToListAsync();
+            //return (IQueryable<Asset>)assets;
         }
 
         public async Task<Asset> FindById(int id)
@@ -66,7 +67,7 @@ namespace Hahn.ApplicatonProcess.February2021.Data.Repository
                 throw new Exception();//TODO: implements custom message error.
 
             _context.Assets.Remove(removeAsset);
-            await _context.SaveChangesAsync();//TODO: replace for unity of work
+            //await _context.SaveChangesAsync();//TODO: replace for unity of work
         }
     }
 }

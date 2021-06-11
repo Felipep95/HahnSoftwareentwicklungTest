@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Hahn.ApplicatonProcess.February2021.Data
 {
-    public sealed class UnityOfWork : IUnityOfWork
+    public class UnityOfWork : IUnityOfWork
     {
         private readonly DbContext _context;
 

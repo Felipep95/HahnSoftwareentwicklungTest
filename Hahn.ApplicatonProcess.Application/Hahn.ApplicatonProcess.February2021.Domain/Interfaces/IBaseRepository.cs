@@ -3,12 +3,12 @@ using System.Threading.Tasks;
 
 namespace Hahn.ApplicatonProcess.February2021.Data.Repository
 {
-    public interface IBaseRepository<T> where T : class
+    public interface IBaseRepository<TEntity> where TEntity : class
     {
-        void Add(T item);
-        Task<T> FindById(int id);
-        Task<IQueryable<T>> FindAll();
-        Task Edit(int id, T item);
+        void Add(TEntity entity);
+        Task<TEntity> FindById(int id);
+        Task<IQueryable<TEntity>> FindAll();
+        Task Edit(int id, TEntity entity);
         Task Remove(int id);
         
     }
