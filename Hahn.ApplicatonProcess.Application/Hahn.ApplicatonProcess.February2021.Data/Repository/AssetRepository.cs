@@ -9,7 +9,7 @@ namespace Hahn.ApplicatonProcess.February2021.Data.Repository
         private readonly DataContext _context;
         public AssetRepository(DataContext context) : base(context)
         {
-
+            _context = context;
         }
 
         public void Dispose()

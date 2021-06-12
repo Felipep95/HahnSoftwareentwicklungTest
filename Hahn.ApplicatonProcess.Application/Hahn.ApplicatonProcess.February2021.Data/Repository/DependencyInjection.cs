@@ -8,12 +8,12 @@
 //    {
 //        public static IServiceCollection AddRepository(this IServiceCollection services)
 //        {
-//            //services.AddTransient<IAssetRepository, AssetRepository>();
-//            //services.AddTransient<IUnityOfWork, UnityOfWork>();
-            
-//            //services.AddDbContext<DataContext>(options =>
-//            //    options.UseInMemoryDatabase("connectionString"));
-//            //    //options.UseInMemoryDatabase(Configuration.GetConnectionString("DefaultConnection")));
+//            services.AddTransient<IAssetRepository, AssetRepository>();
+//            services.AddTransient<IUnityOfWork, UnityOfWork>();
+
+//            services.AddDbContext<DataContext>(options =>
+//                options.UseInMemoryDatabase(databaseName: "HahnSoftwareentwicklungTestDB"));
+//            //options.UseInMemoryDatabase(Configuration.GetConnectionString("DefaultConnection")));
 
 //            return services;
 //        }

@@ -3,18 +3,11 @@ using Hahn.ApplicatonProcess.February2021.Data.Context;
 using Hahn.ApplicatonProcess.February2021.Data.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Hahn.ApplicatonProcess.February2021.Web
 {
@@ -31,14 +24,18 @@ namespace Hahn.ApplicatonProcess.February2021.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IAssetRepository, AssetRepository>();
-            //services.AddTransient<IUnityOfWork, UnityOfWork>(); // have error
+            services.AddTransient<IUnityOfWork, UnityOfWork>(); // have error
 
             //services.AddRepository();
 
+            //services.AddDbContext<DataContext>(options =>
+            //    options.UseInMemoryDatabase(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<DataContext>(options =>
-                options.UseInMemoryDatabase(Configuration.GetConnectionString("DefaultConnection")));
-
+                options.UseInMemoryDatabase(databaseName: "HahnSoftwareentwicklungTestDB"));
+            services.AddScoped<DbContext, DataContext>();
+            
             services.AddControllers();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hahn.ApplicatonProcess.February2021.Web", Version = "v1" });

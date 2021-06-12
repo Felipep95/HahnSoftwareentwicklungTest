@@ -8,10 +8,14 @@ namespace Hahn.ApplicatonProcess.February2021.Data
     public class UnityOfWork : IUnityOfWork
     {
         private readonly DbContext _context;
+        //private readonly IAssetRepository Assets;
         public IAssetRepository Assets { get; }
-        
 
-        public UnityOfWork(DbContext context, AssetRepository assetRepository)
+        //public UnityOfWork(IAssetRepository asset)
+        //{
+        //    Assets = asset;
+        //}
+        public UnityOfWork(DbContext context, IAssetRepository assetRepository)
         {
             _context = context;
             Assets = assetRepository;

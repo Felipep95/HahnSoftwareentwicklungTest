@@ -10,9 +10,12 @@ namespace Hahn.ApplicatonProcess.February2021.Web.Controllers
     [ApiController]
     public class AssetController : ControllerBase
     {
-        private readonly UnityOfWork _unityOfWork;
-        
-        public AssetController(UnityOfWork unityOfWork)
+        private readonly IUnityOfWork _unityOfWork;
+
+        //UnityOfWork uow = new UnityOfWork();
+
+
+        public AssetController(IUnityOfWork unityOfWork)
         {
             _unityOfWork = unityOfWork;
         }
@@ -20,7 +23,9 @@ namespace Hahn.ApplicatonProcess.February2021.Web.Controllers
         [HttpGet]
         public async Task<ActionResult<Asset>> GetById(int id)
         {
+            //_unityOfWork.BeginTransaction();
             return await _unityOfWork.Assets.FindById(id);
+            //return await uow.Assets.FindById(id);
         }
 
         [HttpPost]
@@ -38,6 +43,8 @@ namespace Hahn.ApplicatonProcess.February2021.Web.Controllers
 
             await _unityOfWork.Assets.Add(newAsset);
             await _unityOfWork.Commit();
+            //await uow.Assets.Add(newAsset);//null reference on asset
+            //await uow.Commit();
 
             return Ok(newAsset);
         }
