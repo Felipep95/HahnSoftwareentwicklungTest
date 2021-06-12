@@ -1,0 +1,12 @@
+A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.February2021.Domain\bin\Debug\net5.0\Hahn.ApplicatonProcess.February2021.Domain.deps.json
+A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.February2021.Domain\bin\Debug\net5.0\Hahn.ApplicatonProcess.February2021.Domain.dll
+A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.February2021.Domain\bin\Debug\net5.0\ref\Hahn.ApplicatonProcess.February2021.Domain.dll
+A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.February2021.Domain\bin\Debug\net5.0\Hahn.ApplicatonProcess.February2021.Domain.pdb
+A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.February2021.Domain\obj\Debug\net5.0\Hahn.ApplicatonProcess.February2021.Domain.GeneratedMSBuildEditorConfig.editorconfig
+A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.February2021.Domain\obj\Debug\net5.0\Hahn.ApplicatonProcess.February2021.Domain.AssemblyInfoInputs.cache
+A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.February2021.Domain\obj\Debug\net5.0\Hahn.ApplicatonProcess.February2021.Domain.AssemblyInfo.cs
+A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.February2021.Domain\obj\Debug\net5.0\Hahn.ApplicatonProcess.February2021.Domain.csproj.CoreCompileInputs.cache
+A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.February2021.Domain\obj\Debug\net5.0\Hahn.ApplicatonProcess.February2021.Domain.dll
+A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.February2021.Domain\obj\Debug\net5.0\ref\Hahn.ApplicatonProcess.February2021.Domain.dll
+A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.February2021.Domain\obj\Debug\net5.0\Hahn.ApplicatonProcess.February2021.Domain.pdb
+A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.February2021.Domain\obj\Debug\net5.0\Hahn.ApplicatonProcess.February2021.Domain.csprojAssemblyReference.cache

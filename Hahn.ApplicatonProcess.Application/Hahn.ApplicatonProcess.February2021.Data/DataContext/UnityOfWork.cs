@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Hahn.ApplicatonProcess.February2021.Data.Repository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
 
@@ -7,15 +8,18 @@ namespace Hahn.ApplicatonProcess.February2021.Data
     public class UnityOfWork : IUnityOfWork
     {
         private readonly DbContext _context;
+        public IAssetRepository Assets { get; }
+        
 
-        public UnityOfWork(DbContext context)
+        public UnityOfWork(DbContext context, AssetRepository assetRepository)
         {
             _context = context;
+            Assets = assetRepository;
         }
 
         public void BeginTransaction()
         {
-            //TODO: implements logic
+            _context.Database.BeginTransaction();
         }
 
         public async Task Commit()
@@ -25,12 +29,19 @@ namespace Hahn.ApplicatonProcess.February2021.Data
 
         public void Rollback()
         {
-            
+            _context.Database.RollbackTransaction();
         }
 
         public void Dispose()
         {
-            _context.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+                _context.Dispose();
         }
     }
 }

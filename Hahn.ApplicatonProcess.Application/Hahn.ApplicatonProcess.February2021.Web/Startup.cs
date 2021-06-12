@@ -1,5 +1,6 @@
 using Hahn.ApplicatonProcess.February2021.Data;
 using Hahn.ApplicatonProcess.February2021.Data.Context;
+using Hahn.ApplicatonProcess.February2021.Data.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,10 +30,13 @@ namespace Hahn.ApplicatonProcess.February2021.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(options => 
-                options.UseInMemoryDatabase(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<IAssetRepository, AssetRepository>();
+            //services.AddTransient<IUnityOfWork, UnityOfWork>(); // have error
 
-            services.AddTransient<IUnityOfWork, UnityOfWork>();
+            //services.AddRepository();
+
+            services.AddDbContext<DataContext>(options =>
+                options.UseInMemoryDatabase(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

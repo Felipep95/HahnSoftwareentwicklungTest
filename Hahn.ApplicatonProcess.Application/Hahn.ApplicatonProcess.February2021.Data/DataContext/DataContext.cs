@@ -11,7 +11,7 @@ namespace Hahn.ApplicatonProcess.February2021.Data.Context
 
         }
 
-        public DataContext(DbContextOptions<DataContext> options)
+        public DataContext(DbContextOptions<DataContext> options) 
             : base(options)
         {
         }
