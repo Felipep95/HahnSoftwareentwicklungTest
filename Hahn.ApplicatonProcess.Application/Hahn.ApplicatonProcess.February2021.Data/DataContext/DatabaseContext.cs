@@ -4,14 +4,14 @@ using Hahn.ApplicatonProcess.February2021.Domain.Models;
 
 namespace Hahn.ApplicatonProcess.February2021.Data.Context
 {
-    public class DataContext : DbContext
+    public class DatabaseContext : DbContext
     {
-        public DataContext()
+        public DatabaseContext()
         {
 
         }
 
-        public DataContext(DbContextOptions<DataContext> options) 
+        public DatabaseContext(DbContextOptions<DatabaseContext> options) 
             : base(options)
         {
         }

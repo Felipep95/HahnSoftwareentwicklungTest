@@ -7,9 +7,9 @@ namespace Hahn.ApplicatonProcess.February2021.Data.Repository
     //Note: need to handle business logic here?
     public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        private readonly DataContext _context;
+        private readonly DatabaseContext _context;
 
-        public GenericRepository(DataContext context)
+        public GenericRepository(DatabaseContext context)
         {
             _context = context;
         }

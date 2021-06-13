@@ -24,18 +24,17 @@ namespace Hahn.ApplicatonProcess.February2021.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IAssetRepository, AssetRepository>();
-            services.AddTransient<IUnityOfWork, UnityOfWork>(); // have error
+            services.AddTransient<IUnityOfWork, UnityOfWork>();
+            services.AddTransient<DbContext, DatabaseContext>();
+            //services.AddScoped<DbContext, DatabaseContext>(); //current
 
-            //services.AddRepository();
+            services.AddScoped<UnityOfWork>();
 
-            //services.AddDbContext<DataContext>(options =>
-            //    options.UseInMemoryDatabase(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<DataContext>(options =>
+            services.AddDbContext<DatabaseContext>(options =>
                 options.UseInMemoryDatabase(databaseName: "HahnSoftwareentwicklungTestDB"));
-            services.AddScoped<DbContext, DataContext>();
-            
+
             services.AddControllers();
-            
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hahn.ApplicatonProcess.February2021.Web", Version = "v1" });
@@ -52,6 +51,9 @@ namespace Hahn.ApplicatonProcess.February2021.Web
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hahn.ApplicatonProcess.February2021.Web v1"));
             }
 
+            //var uow = app.ApplicationServices.GetService<DatabaseContext>();
+            //AddAssetData(uow);
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -65,3 +67,4 @@ namespace Hahn.ApplicatonProcess.February2021.Web
         }
     }
 }
+

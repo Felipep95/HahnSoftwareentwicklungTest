@@ -12,5 +12,22 @@ namespace Hahn.ApplicatonProcess.February2021.Domain.Models
         public string EMailAdressOfDepartment { get; set; }
         public DateTime PurchaseDate { get; set; }
         public bool broken { get; set; }
+
+
+        //public Asset()
+        //{
+
+        //}
+
+        //public Asset(int id, string assetName, Department department, string countrOfDepartment, string emailAdressDepartment, DateTime purchaseDate, bool broken)
+        //{
+        //    ID = id;
+        //    AssetName = assetName;
+        //    Department = department;
+        //    CountryOfDepartment = countrOfDepartment;
+        //    EMailAdressOfDepartment = emailAdressDepartment;
+        //    PurchaseDate = purchaseDate;
+        //    broken = brokenn;
+        //}
     }
 }

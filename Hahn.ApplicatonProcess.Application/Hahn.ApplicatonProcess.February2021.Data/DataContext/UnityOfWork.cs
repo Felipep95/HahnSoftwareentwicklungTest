@@ -11,10 +11,11 @@ namespace Hahn.ApplicatonProcess.February2021.Data
         //private readonly IAssetRepository Assets;
         public IAssetRepository Assets { get; }
 
-        //public UnityOfWork(IAssetRepository asset)
-        //{
-        //    Assets = asset;
-        //}
+        public UnityOfWork()
+        {
+
+        }
+        
         public UnityOfWork(DbContext context, IAssetRepository assetRepository)
         {
             _context = context;
