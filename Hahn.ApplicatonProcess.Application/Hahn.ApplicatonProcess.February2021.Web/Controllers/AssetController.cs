@@ -38,8 +38,11 @@ namespace Hahn.ApplicatonProcess.February2021.Web.Controllers
                 newAsset.PurchaseDate = asset.PurchaseDate;
                 newAsset.Broken = asset.Broken;
 
-                await _unityOfWork.Assets.Add(newAsset);
-                await _unityOfWork.Commit();
+                //await _unityOfWork.Assets.Add(newAsset);
+                //await _unityOfWork.Commit();
+
+                await _context.Assets.AddAsync(newAsset);
+                await _context.SaveChangesAsync();
 
                 return Created(new Uri(Request.GetEncodedUrl() + "/" + newAsset.Id), newAsset);
             }
@@ -52,7 +55,8 @@ namespace Hahn.ApplicatonProcess.February2021.Web.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Asset>> GetById(int id)
         {
-            var asset = await _unityOfWork.Assets.FindById(id);
+            //var asset = await _unityOfWork.Assets.FindById(id);
+            var asset = await _context.Assets.FindAsync(id);
             return Ok(asset);
         }
 
@@ -60,6 +64,9 @@ namespace Hahn.ApplicatonProcess.February2021.Web.Controllers
         public async Task<ActionResult> Update(int id)
         {
             var getAsset = await _unityOfWork.Assets.FindById(id);
+
+            if (getAsset == null)
+                return NotFound("Error: asset not found");
             
             var assetToEdit = new Asset();
             
@@ -79,9 +86,12 @@ namespace Hahn.ApplicatonProcess.February2021.Web.Controllers
         [HttpDelete]
         public async Task<ActionResult> Delete(int id)
         {
-            var assetToDelete = await _unityOfWork.Assets.FindById(id);
-            _unityOfWork.Assets.Remove(assetToDelete);
-            await _unityOfWork.Commit();
+            //var assetToDelete = await _unityOfWork.Assets.FindById(id);
+            //_unityOfWork.Assets.Remove(assetToDelete);
+            //await _unityOfWork.Commit();
+            var assetToDelete = await _context.Assets.FindAsync(id);
+            _context.Assets.Remove(assetToDelete);
+            await _context.SaveChangesAsync();
             return Ok("Asset deleted successfully");
         }
 

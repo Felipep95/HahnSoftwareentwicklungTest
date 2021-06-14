@@ -8,10 +8,13 @@ namespace Hahn.ApplicatonProcess.February2021.Data.Repository
     public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         private readonly DatabaseContext _context;
+        IUnityOfWork _unityOfWork;
 
-        public GenericRepository(DatabaseContext context)
+        //public GenericRepository(DatabaseContext context)
+        public GenericRepository(IUnityOfWork unityOfWork)
         {
-            _context = context;
+            //_context = context;
+            _unityOfWork = unityOfWork;
         }
 
         public async Task Add(TEntity entity)

@@ -25,10 +25,11 @@ namespace Hahn.ApplicatonProcess.February2021.Web
         {
             services.AddTransient<IAssetRepository, AssetRepository>();
             services.AddTransient<IUnityOfWork, UnityOfWork>();
-            services.AddScoped<DbContext, DatabaseContext>();
+            services.AddTransient<DbContext, DatabaseContext>();
             //services.AddScoped<DbContext, DatabaseContext>(); //current
 
-            services.AddScoped<UnityOfWork>();
+            //services.AddScoped<UnityOfWork>();
+            //services.AddScoped<IUnityOfWork>();
 
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseInMemoryDatabase(databaseName: "HahnSoftwareentwicklungTestDB"));
