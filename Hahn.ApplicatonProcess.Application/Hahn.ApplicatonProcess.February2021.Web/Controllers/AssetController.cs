@@ -1,7 +1,9 @@
 ﻿using Hahn.ApplicatonProcess.February2021.Data;
-using Hahn.ApplicatonProcess.February2021.Data.Repository;
+using Hahn.ApplicatonProcess.February2021.Data.Context;
 using Hahn.ApplicatonProcess.February2021.Domain.Models;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
 
@@ -13,32 +15,33 @@ namespace Hahn.ApplicatonProcess.February2021.Web.Controllers
     public class AssetController : ControllerBase
     {
         private readonly UnityOfWork _unityOfWork;
+        private readonly DatabaseContext _context;
         
-        public AssetController(UnityOfWork unityOfWork)
+        public AssetController(UnityOfWork unityOfWork, DatabaseContext context)
         {
             _unityOfWork = unityOfWork;
+            _context = context;
         }
 
         [HttpPost]
-        public async Task<ActionResult<Asset>> Post(Asset asset)
+        public async Task<ActionResult<Asset>> Create(Asset asset)
         {
-            //var checkId = _unityOfWork.Assets.FindById(asset.ID);
             try
             {
                 var newAsset = new Asset();//TODO: create dto
 
-                newAsset.ID = asset.ID;
+                newAsset.Id = asset.Id;
                 newAsset.AssetName = asset.AssetName;
                 newAsset.Department = asset.Department;
                 newAsset.CountryOfDepartment = asset.CountryOfDepartment;
-                newAsset.EMailAdressOfDepartment = asset.EMailAdressOfDepartment;
+                newAsset.EmailAdressOfDepartment = asset.EmailAdressOfDepartment;
                 newAsset.PurchaseDate = asset.PurchaseDate;
-                newAsset.broken = asset.broken;
+                newAsset.Broken = asset.Broken;
 
                 await _unityOfWork.Assets.Add(newAsset);
-                
+                await _unityOfWork.Commit();
 
-                return Ok(newAsset);
+                return Created(new Uri(Request.GetEncodedUrl() + "/" + newAsset.Id), newAsset);
             }
             catch (Exception ex)
             {
@@ -50,20 +53,43 @@ namespace Hahn.ApplicatonProcess.February2021.Web.Controllers
         public async Task<ActionResult<Asset>> GetById(int id)
         {
             var asset = await _unityOfWork.Assets.FindById(id);
+            return Ok(asset);
+        }
 
-            var getAsset = new Asset();
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Update(int id)
+        {
+            var getAsset = await _unityOfWork.Assets.FindById(id);
+            
+            var assetToEdit = new Asset();
+            
+            assetToEdit.AssetName = getAsset.AssetName;
+            assetToEdit.Department = getAsset.Department;
+            assetToEdit.CountryOfDepartment = getAsset.CountryOfDepartment;
+            assetToEdit.EmailAdressOfDepartment = getAsset.EmailAdressOfDepartment;
+            assetToEdit.PurchaseDate = getAsset.PurchaseDate;
+            assetToEdit.Broken = getAsset.Broken;
 
-            getAsset.ID = asset.ID;
-            getAsset.AssetName = asset.AssetName;
-            getAsset.Department = asset.Department;
-            getAsset.CountryOfDepartment = asset.CountryOfDepartment;
-            getAsset.EMailAdressOfDepartment = asset.EMailAdressOfDepartment;
-            getAsset.PurchaseDate = asset.PurchaseDate;
-            getAsset.broken = asset.broken;
-
-
+            _unityOfWork.Assets.Edit(assetToEdit);
             await _unityOfWork.Commit();
-            return getAsset;
+
+            return Ok(assetToEdit);
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var assetToDelete = await _unityOfWork.Assets.FindById(id);
+            _unityOfWork.Assets.Remove(assetToDelete);
+            await _unityOfWork.Commit();
+            return Ok("Asset deleted successfully");
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<Asset>> GetAll()
+        {
+            var assetList = await _context.Assets.ToListAsync();
+            return Ok(assetList);
         }
     }
 }

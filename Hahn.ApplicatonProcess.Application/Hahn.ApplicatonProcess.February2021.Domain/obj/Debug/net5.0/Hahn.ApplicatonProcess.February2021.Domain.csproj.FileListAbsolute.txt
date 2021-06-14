@@ -9,3 +9,4 @@ A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.Appl
 A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.February2021.Domain\obj\Debug\net5.0\Hahn.ApplicatonProcess.February2021.Domain.dll
 A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.February2021.Domain\obj\Debug\net5.0\ref\Hahn.ApplicatonProcess.February2021.Domain.dll
 A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.February2021.Domain\obj\Debug\net5.0\Hahn.ApplicatonProcess.February2021.Domain.pdb
+A:\Studies\Hahn_Softwareentwicklung\Hahn.ApplicatonProcess.Application\Hahn.ApplicatonProcess.February2021.Domain\obj\Debug\net5.0\Hahn.ApplicatonProcess.February2021.Domain.csprojAssemblyReference.cache
