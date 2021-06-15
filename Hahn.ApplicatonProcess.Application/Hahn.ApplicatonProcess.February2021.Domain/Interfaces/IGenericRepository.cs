@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace Hahn.ApplicatonProcess.February2021.Data.Repository
 {
@@ -6,9 +7,7 @@ namespace Hahn.ApplicatonProcess.February2021.Data.Repository
     {
         Task Add(TEntity entity);
         Task<TEntity> FindById(int id);
-        //Task Edit(int id);
         void Edit(TEntity entity);
-        //Task Remove(int id);
         void Remove(TEntity entity);
     }
 }

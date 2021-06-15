@@ -23,14 +23,14 @@ namespace Hahn.ApplicatonProcess.February2021.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IAssetRepository, AssetRepository>();
-            services.AddTransient<IUnityOfWork, UnityOfWork>();
-            services.AddTransient<DbContext, DatabaseContext>();
-            //services.AddScoped<DbContext, DatabaseContext>(); //current
-
-            //services.AddScoped<UnityOfWork>();
-            //services.AddScoped<IUnityOfWork>();
-
+            //services.AddScoped<DbContext, DatabaseContext>();
+            //services.AddTransient<IAssetRepository, AssetRepository>();
+            //services.AddTransient<IUnityOfWork, UnityOfWork>();
+            
+            services.AddScoped<DbContext, DatabaseContext>();
+            services.AddTransient<AssetRepository>();
+            services.AddTransient<UnityOfWork>();
+            
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseInMemoryDatabase(databaseName: "HahnSoftwareentwicklungTestDB"));
 
