@@ -1,35 +1,48 @@
-﻿//using Hahn.ApplicatonProcess.February2021.Data.Context;
-//using System.Threading.Tasks;
+﻿using Hahn.ApplicatonProcess.February2021.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
-//namespace Hahn.ApplicatonProcess.February2021.Data.Repository
-//{
-//    public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
-//    {
-//        private readonly DatabaseContext _context;
+namespace Hahn.ApplicatonProcess.February2021.Domain.Interfaces
+{
+    public class GenericRepository<TEntity> where TEntity : class
+    {
+        internal DatabaseContext _context;
+        //internal DbSet<TEntity> dbSet;
 
-//        public GenericRepository(DatabaseContext context)
-//        {
-//            _context = context;
-//        }
+        public GenericRepository(DatabaseContext context)
+        {
+            _context = context;
+            //dbSet = context.Set<TEntity>();
+        }
 
-//        public async Task Add(TEntity entity)
-//        {
-//            await _context.Set<TEntity>().AddAsync(entity);
-//        }
+        public virtual TEntity GetByID(object id)
+        {
+            return _context.Set<TEntity>().Find(id);
+        }
 
-//        public async Task<TEntity> FindById(int id)
-//        {
-//            return await _context.Set<TEntity>().FindAsync(id);
-//        }
+        public virtual void Insert(TEntity entity)
+        {
+            _context.Set<TEntity>().Add(entity);
+        }
 
-//        public void Edit(TEntity asset)
-//        {
-//            _context.Set<TEntity>().Update(asset);
-//        }
+        public virtual void Delete(object id)
+        {
+            TEntity entityToDelete = _context.Set<TEntity>().Find(id);
+            Delete(entityToDelete);
+        }
 
-//        public void Remove(TEntity asset)
-//        {
-//            _context.Set<TEntity>().Remove(asset);
-//        }
-//    }
-//}
+        public virtual void Delete(TEntity entityToDelete)
+        {
+            if (_context.Entry(entityToDelete).State == EntityState.Detached)
+            {
+                _context.Attach(entityToDelete);
+            }
+            _context.Set<TEntity>().Remove(entityToDelete);
+        }
+
+        public virtual void Update(TEntity entityToUpdate)
+        {
+            _context.Attach(entityToUpdate);
+            _context.Entry(entityToUpdate).State = EntityState.Modified;
+        }
+    }
+}

@@ -12,11 +12,6 @@ namespace Hahn.ApplicatonProcess.February2021.Data
             _context = context;
         }
 
-        public void BeginTransaction()
-        {
-            _context.Database.BeginTransaction();
-        }
-
         public async Task<bool> Commit()
         {
             var success = (await _context.SaveChangesAsync()) > 0;

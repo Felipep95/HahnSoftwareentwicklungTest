@@ -5,7 +5,6 @@ namespace Hahn.ApplicatonProcess.February2021.Data
 {
     public interface IUnityOfWork : IDisposable
     {
-        void BeginTransaction();
         Task<bool> Commit();
         Task Rollback();
     }
