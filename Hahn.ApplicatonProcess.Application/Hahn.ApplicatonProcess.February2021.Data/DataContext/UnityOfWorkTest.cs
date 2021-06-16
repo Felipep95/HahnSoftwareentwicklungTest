@@ -8,11 +8,9 @@ namespace Hahn.ApplicatonProcess.February2021.Data.DataContext
 {
     public class UnityOfWorkTest
     {
-        //private DatabaseContext _context = new DatabaseContext();
         private readonly DatabaseContext _context;
         private AssetRepository _assetRepository;
-        //private GenericRepository<Asset> _assetRepository;
-
+        
         public UnityOfWorkTest(DatabaseContext context)
         {
             _context = context;

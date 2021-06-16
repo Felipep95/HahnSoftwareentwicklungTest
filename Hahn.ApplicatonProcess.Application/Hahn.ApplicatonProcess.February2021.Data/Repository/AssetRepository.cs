@@ -1,8 +1,5 @@
 ﻿using Hahn.ApplicatonProcess.February2021.Data.Context;
-using Hahn.ApplicatonProcess.February2021.Domain.Enums;
 using Hahn.ApplicatonProcess.February2021.Domain.Models;
-using System;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Hahn.ApplicatonProcess.February2021.Data.Repository
