@@ -1,31 +1,55 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Hahn.ApplicatonProcess.February2021.Data.Context;
+using Hahn.ApplicatonProcess.February2021.Data.Repository;
+using System;
 using System.Threading.Tasks;
 
 namespace Hahn.ApplicatonProcess.February2021.Data
 {
     public class UnityOfWork : IUnityOfWork
     {
-        private readonly DbContext _context;
+        private readonly DatabaseContext _context;
+        private AssetRepository _assetsRepository;
         
-        public UnityOfWork(DbContext context)
+        public UnityOfWork(DatabaseContext context)
         {
             _context = context;
         }
 
-        public void BeginTransaction()
+        public AssetRepository assetRepository
         {
-            _context.Database.BeginTransaction();
+            get
+            {
+                if (_assetsRepository == null)
+                {
+                    _assetsRepository = new AssetRepository(_context);
+                }
+                return _assetsRepository;
+            }
         }
 
-        public async Task<bool> Commit()
+        public async Task Commit()
         {
-            var success = (await _context.SaveChangesAsync()) > 0;
-            return success;
+            await _context.SaveChangesAsync();
+        }
+
+        private bool disposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    _context.Dispose();
+                }
+            }
+            disposed = true;
         }
 
         public void Dispose()
         {
-            _context.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         public Task Rollback()
