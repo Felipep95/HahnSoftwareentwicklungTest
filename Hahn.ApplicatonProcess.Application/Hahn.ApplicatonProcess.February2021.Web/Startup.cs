@@ -1,6 +1,7 @@
 using Hahn.ApplicatonProcess.February2021.Data;
 using Hahn.ApplicatonProcess.February2021.Data.Context;
 using Hahn.ApplicatonProcess.February2021.Data.Repository;
+using Hahn.ApplicatonProcess.February2021.Domain.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +27,8 @@ namespace Hahn.ApplicatonProcess.February2021.Web
             services.AddScoped<DbContext, DatabaseContext>();
             services.AddTransient<UnityOfWork>();
             services.AddTransient<AssetRepository>();
-            
+            services.AddScoped<AssetService>();
+
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseInMemoryDatabase(databaseName: "HahnSoftwareentwicklungTestDB"));
 
