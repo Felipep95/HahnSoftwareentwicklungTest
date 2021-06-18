@@ -4,25 +4,26 @@ using Hahn.ApplicatonProcess.February2021.Domain.Mapper;
 using Hahn.ApplicatonProcess.February2021.Domain.Models;
 using System;
 using System.Data;
+using System.IO;
+using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Hahn.ApplicatonProcess.February2021.Domain.Services
 {
     public class AssetService
     {
-        private  UnityOfWork _unityOfWork;
+        private UnityOfWork _unityOfWork;
 
         public AssetService(UnityOfWork unityOfWork)
         {
             _unityOfWork = unityOfWork;
         }
 
-        
+
         public async Task<Asset> Create(CREATEAssetDTO assetDTO)
         {
             var newAsset = AssetMapping.ToEntity(assetDTO);
-            
+
             try
             {
                 await _unityOfWork.assetRepository.AddAsync(newAsset);
@@ -64,5 +65,32 @@ namespace Hahn.ApplicatonProcess.February2021.Domain.Services
             _unityOfWork.assetRepository.Remove(assetTodelete);
             await _unityOfWork.Commit();
         }
+
+        public string InsertMask(DateTime dateTime)
+        {
+            return dateTime.ToString("MM/dd/yyyy HH:mm:ss");
+        }
+
+        HttpClient httpClient = new HttpClient();
+
+        public async Task<Stream> GetCountryList()
+        {
+            Stream countryList;
+
+            try
+            {
+                string url = "https://restcountries.eu/rest/v2/all?fields=name;";
+                var response = await httpClient.GetStreamAsync(url);
+                countryList = response;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return countryList;
+        }
     }
 }
+
+

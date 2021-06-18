@@ -1,12 +1,15 @@
-﻿using Hahn.ApplicatonProcess.February2021.Data;
+﻿using FluentValidation.AspNetCore;
+using Hahn.ApplicatonProcess.February2021.Data;
 using Hahn.ApplicatonProcess.February2021.Domain.DTO;
 using Hahn.ApplicatonProcess.February2021.Domain.Mapper;
 using Hahn.ApplicatonProcess.February2021.Domain.Models;
 using Hahn.ApplicatonProcess.February2021.Domain.Services;
+using Hahn.ApplicatonProcess.February2021.Domain.Validators;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Data;
+using System.IO;
 using System.Threading.Tasks;
 
 
@@ -17,15 +20,21 @@ namespace Hahn.ApplicatonProcess.February2021.Web.Controllers
     public class AssetController : ControllerBase
     {
         private readonly AssetService _assetService;
-        
+
         public AssetController(AssetService assetService)
         {
-           _assetService = assetService;
+            _assetService = assetService;
         }
 
         [HttpPost]
         public async Task<ActionResult> Create(CREATEAssetDTO assetDTO)
         {
+            var assetValidator = new CreateAssetValidator();
+            var result = assetValidator.Validate(assetDTO);
+
+            if (!result.IsValid)
+                return BadRequest(result.Errors);
+
             var newAsset = await _assetService.Create(assetDTO);
             return Created(new Uri(Request.GetEncodedUrl() + "/" + newAsset.Id), newAsset);
         }

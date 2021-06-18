@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Hahn.ApplicatonProcess.February2021.Data;
 using Hahn.ApplicatonProcess.February2021.Data.Context;
 using Hahn.ApplicatonProcess.February2021.Data.Repository;
@@ -32,7 +33,14 @@ namespace Hahn.ApplicatonProcess.February2021.Web
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseInMemoryDatabase(databaseName: "HahnSoftwareentwicklungTestDB"));
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddFluentValidation(x =>
+                {
+                    x.DisableDataAnnotationsValidation = false;
+                    x.RegisterValidatorsFromAssemblyContaining<Startup>();
+                });
+
+
 
             services.AddSwaggerGen(c =>
             {
