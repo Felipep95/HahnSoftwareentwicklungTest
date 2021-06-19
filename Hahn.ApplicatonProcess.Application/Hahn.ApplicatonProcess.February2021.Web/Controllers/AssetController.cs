@@ -5,6 +5,7 @@ using Hahn.ApplicatonProcess.February2021.Domain.Validators;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Net;
 using System.Threading.Tasks;
 
 
@@ -24,13 +25,14 @@ namespace Hahn.ApplicatonProcess.February2021.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(CREATEAssetDTO assetDTO)
         {
-            var assetValidator = new CreateAssetValidator();
-            var result = assetValidator.Validate(assetDTO);
+            //var validator = new CreateAssetValidator();
+            //var validation = validator.Validate(assetDTO);
 
-            if (!result.IsValid)
-                return BadRequest(result.Errors);
+            //if (!validation.IsValid)
+            //    //return BadRequest(result.Errors);
+                //    return BadRequest(validation.ToString());
 
-            var newAsset = await _assetService.Create(assetDTO);
+                var newAsset = await _assetService.Create(assetDTO);
             return Created(new Uri(Request.GetEncodedUrl() + "/" + newAsset.Id), newAsset);
         }
 
@@ -43,7 +45,7 @@ namespace Hahn.ApplicatonProcess.February2021.Web.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<Asset>> Update(int id, CREATEAssetDTO assetDTO)
         {
-            var assetValidator = new CreateAssetValidator();
+            var assetValidator = new AssetValidator();
             var result = assetValidator.Validate(assetDTO);
 
             if (!result.IsValid)

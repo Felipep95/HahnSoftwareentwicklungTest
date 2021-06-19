@@ -11,19 +11,19 @@ using System.Threading.Tasks;
 
 namespace Hahn.ApplicatonProcess.February2021.Domain.Validators
 {
-    public class CreateAssetValidator : AbstractValidator<CREATEAssetDTO>
+    public class AssetValidator : AbstractValidator<CREATEAssetDTO>
     {
         HttpClient client = new HttpClient();
         
-        public CreateAssetValidator()
+        public AssetValidator()
         {
-            RuleFor(x => x.AssetName).MinimumLength(5).WithMessage("at least 5 Characters");
-            RuleFor(x => x.Department).IsInEnum().WithMessage("must be a valid enumvalue");
-            RuleFor(x => x.PurchaseDate).Must(ValidateDate).WithMessage("must not be older then one year");
-            RuleFor(x => x.EmailAdressOfDepartment).EmailAddress().WithMessage("must be an valid email");
-            RuleFor(x => x.Broken).NotNull();
+            RuleFor(x => x.AssetName).NotNull().NotEmpty().MinimumLength(5).WithMessage("name need at least 5 Characters");
+            RuleFor(x => x.Department).NotNull().NotEmpty().IsInEnum().WithMessage("department must be a valid enumvalue");
+            RuleFor(x => x.PurchaseDate).NotNull().NotEmpty().GreaterThan(DateTime.Now.AddYears(-1)).WithMessage("purchase date must not be older then one year");
+            RuleFor(x => x.EmailAdressOfDepartment).NotNull().NotEmpty().EmailAddress().WithMessage("email must be an valid email");
+            RuleFor(x => x.Broken).NotNull().NotEmpty();
 
-            RuleFor(x => x.CountryOfDepartment).MustAsync(
+            RuleFor(x => x.CountryOfDepartment).NotNull().NotEmpty().MustAsync(
                 async (CountryOfDepartment, cancellation) =>
                 {
                     var uri = "https://restcountries.eu";
@@ -37,7 +37,5 @@ namespace Hahn.ApplicatonProcess.February2021.Domain.Validators
                 }
                 ).WithMessage("invalid country name");
         }
-
-        public bool ValidateDate(DateTime date) => date >= DateTime.Now.AddYears(-1) ? true : false;
     }
 }

@@ -3,6 +3,7 @@ using Hahn.ApplicatonProcess.February2021.Data;
 using Hahn.ApplicatonProcess.February2021.Data.Context;
 using Hahn.ApplicatonProcess.February2021.Data.Repository;
 using Hahn.ApplicatonProcess.February2021.Domain.Services;
+using Hahn.ApplicatonProcess.February2021.Domain.Validators;
 using Hahn.ApplicatonProcess.February2021.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,7 +40,7 @@ namespace Hahn.ApplicatonProcess.February2021.Web
                 .AddFluentValidation(x =>
                 {
                     x.DisableDataAnnotationsValidation = false;
-                    x.RegisterValidatorsFromAssemblyContaining<Startup>();
+                    x.RegisterValidatorsFromAssemblyContaining<AssetValidator>();
                 });
 
 

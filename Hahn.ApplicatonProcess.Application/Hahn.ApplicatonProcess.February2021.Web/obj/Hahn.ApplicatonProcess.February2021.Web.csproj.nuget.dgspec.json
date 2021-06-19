@@ -204,6 +204,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "Swashbuckle.Examples": {
+              "target": "Package",
+              "version": "[3.12.0, )"
             }
           },
           "imports": [
