@@ -314,7 +314,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "FluentValidation.AspNetCore": "10.2.3"
+          "FluentValidation.AspNetCore": "10.2.3",
+          "Newtonsoft.Json": "13.0.1"
         },
         "compile": {
           "bin/placeholder/Hahn.ApplicatonProcess.February2021.Domain.dll": {}

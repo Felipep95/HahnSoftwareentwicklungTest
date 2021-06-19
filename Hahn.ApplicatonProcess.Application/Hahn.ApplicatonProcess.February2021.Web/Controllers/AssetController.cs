@@ -1,15 +1,10 @@
-﻿using FluentValidation.AspNetCore;
-using Hahn.ApplicatonProcess.February2021.Data;
-using Hahn.ApplicatonProcess.February2021.Domain.DTO;
-using Hahn.ApplicatonProcess.February2021.Domain.Mapper;
+﻿using Hahn.ApplicatonProcess.February2021.Domain.DTO;
 using Hahn.ApplicatonProcess.February2021.Domain.Models;
 using Hahn.ApplicatonProcess.February2021.Domain.Services;
 using Hahn.ApplicatonProcess.February2021.Domain.Validators;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Data;
-using System.IO;
 using System.Threading.Tasks;
 
 
@@ -48,6 +43,12 @@ namespace Hahn.ApplicatonProcess.February2021.Web.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<Asset>> Update(int id, CREATEAssetDTO assetDTO)
         {
+            var assetValidator = new CreateAssetValidator();
+            var result = assetValidator.Validate(assetDTO);
+
+            if (!result.IsValid)
+                return BadRequest(result.Errors);
+
             return await _assetService.Update(id, assetDTO);
         }
 

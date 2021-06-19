@@ -1,13 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "M8OWGeCKwHF1Soc0MhF1jx02b51BO8PYUr3nTfqG08cxI8VrMZkKXTEe8keUhFBmjN60njqnef6CdnK8po1raQ==",
+  "dgSpecHash": "93ojpWes3sqjwF72T+Omlk/XsUVqaqldaBMFpKWuNgnbTx1huwXh27sHIkTh6l29zG7XhCbMnpORq/jfEcxg5g==",
   "success": true,
   "projectFilePath": "A:\\Studies\\Hahn_Softwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.February2021.Domain\\Hahn.ApplicatonProcess.February2021.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Felipe\\.nuget\\packages\\fluentvalidation\\10.2.3\\fluentvalidation.10.2.3.nupkg.sha512",
     "C:\\Users\\Felipe\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.2.3\\fluentvalidation.aspnetcore.10.2.3.nupkg.sha512",
     "C:\\Users\\Felipe\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.2.3\\fluentvalidation.dependencyinjectionextensions.10.2.3.nupkg.sha512",
-    "C:\\Users\\Felipe\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512"
+    "C:\\Users\\Felipe\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512",
+    "C:\\Users\\Felipe\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }
