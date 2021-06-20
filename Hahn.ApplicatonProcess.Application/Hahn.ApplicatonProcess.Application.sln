@@ -15,6 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicatonProcess.Febr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicatonProcess.February2021.Web", "Hahn.ApplicatonProcess.February2021.Web\Hahn.ApplicatonProcess.February2021.Web.csproj", "{FD00D977-5D3D-4944-913E-F936215483E1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A6DA36B6-CC6F-405B-AECE-220E811A82BA}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
