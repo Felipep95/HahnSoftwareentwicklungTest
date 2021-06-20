@@ -3,6 +3,7 @@ using System.Data;
 using System.Threading.Tasks;
 using Hahn.ApplicatonProcess.February2021.Data;
 using Hahn.ApplicatonProcess.February2021.Domain.DTO;
+using Hahn.ApplicatonProcess.February2021.Domain.Enums;
 using Hahn.ApplicatonProcess.February2021.Domain.Mapper;
 using Hahn.ApplicatonProcess.February2021.Domain.Models;
 
@@ -12,7 +13,7 @@ namespace Hahn.ApplicatonProcess.February2021.Domain.Services
     public class AssetService
     {
         private UnityOfWork _unityOfWork;
-        
+
         public AssetService(UnityOfWork unityOfWork)
         {
             _unityOfWork = unityOfWork;
@@ -42,7 +43,7 @@ namespace Hahn.ApplicatonProcess.February2021.Domain.Services
 
         public async Task<Asset> Update(int id, CREATEAssetDTO assetDTO)
         {
-            var assetToEdit = await _unityOfWork.assetRepository.FindByIdAsync(id);
+            var assetToEdit = await _unityOfWork.assetRepository.FindByIdAsync(id) ?? throw new Exception();
 
             assetToEdit.AssetName = assetDTO.AssetName;
             assetToEdit.Department = assetDTO.Department;
@@ -60,8 +61,15 @@ namespace Hahn.ApplicatonProcess.February2021.Domain.Services
         public async Task Delete(int id)
         {
             var assetTodelete = await _unityOfWork.assetRepository.FindByIdAsync(id);
+            _ = assetTodelete ?? throw new Exception();
             _unityOfWork.assetRepository.Remove(assetTodelete);
             await _unityOfWork.Commit();
+        }
+
+        public string GetEnumValue(Department department)
+        {
+            var enumValue = department.ToString();
+            return enumValue;
         }
     }
 }

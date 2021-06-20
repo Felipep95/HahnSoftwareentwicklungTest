@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hahn.ApplicatonProcess.February2021.Web</name>
+    </assembly>
+    <members>
+        <member name="M:Hahn.ApplicatonProcess.February2021.Web.Controllers.AssetController.Create(Hahn.ApplicatonProcess.February2021.Domain.DTO.CREATEAssetDTO)">
+            <summary>
+             Create a new asset
+            </summary>
+             <response code = "201">creates a new asset</response>
+             <response code = "400">unable to create the asset due to validation error</response>
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.February2021.Web.Controllers.AssetController.GetById(System.Int32)">
+            <summary>
+             Return the asset with the id specified as parameter
+            </summary>
+             <response code = "200">success getting an asset by id</response>
+             <response code = "400">asset with specified id does not exist</response> 
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.February2021.Web.Controllers.AssetController.Update(System.Int32,Hahn.ApplicatonProcess.February2021.Domain.DTO.CREATEAssetDTO)">
+            <summary>
+             Get the asset by id specified as parameter and update the data
+            </summary>
+             <response code = "200">success getting an asset by id</response>
+             <response code = "400">asset with specified id does not exist</response> 
+        </member>
+        <member name="M:Hahn.ApplicatonProcess.February2021.Web.Controllers.AssetController.Delete(System.Int32)">
+            <summary>
+             Get the asset by id specified as parameter and delete the data
+            </summary>
+             <response code = "200">success getting an asset by id</response>
+             <response code = "400">asset with specified id does not exist</response> 
+        </member>
+    </members>
+</doc>

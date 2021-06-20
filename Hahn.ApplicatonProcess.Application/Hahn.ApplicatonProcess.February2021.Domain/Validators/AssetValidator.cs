@@ -1,13 +1,9 @@
 ﻿using FluentValidation;
 using Hahn.ApplicatonProcess.February2021.Domain.DTO;
-using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
+
 
 namespace Hahn.ApplicatonProcess.February2021.Domain.Validators
 {
@@ -21,7 +17,7 @@ namespace Hahn.ApplicatonProcess.February2021.Domain.Validators
             RuleFor(x => x.Department).NotNull().NotEmpty().IsInEnum().WithMessage("department must be a valid enumvalue");
             RuleFor(x => x.PurchaseDate).NotNull().NotEmpty().GreaterThan(DateTime.Now.AddYears(-1)).WithMessage("purchase date must not be older then one year");
             RuleFor(x => x.EmailAdressOfDepartment).NotNull().NotEmpty().EmailAddress().WithMessage("email must be an valid email");
-            RuleFor(x => x.Broken).NotNull().NotEmpty();
+            RuleFor(x => x.Broken).NotNull();
 
             RuleFor(x => x.CountryOfDepartment).NotNull().NotEmpty().MustAsync(
                 async (CountryOfDepartment, cancellation) =>

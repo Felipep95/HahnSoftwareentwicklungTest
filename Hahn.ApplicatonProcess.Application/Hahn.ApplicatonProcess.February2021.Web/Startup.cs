@@ -12,6 +12,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Filters;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace Hahn.ApplicatonProcess.February2021.Web
 {
@@ -43,12 +47,19 @@ namespace Hahn.ApplicatonProcess.February2021.Web
                     x.RegisterValidatorsFromAssemblyContaining<AssetValidator>();
                 });
 
-
-
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hahn.ApplicatonProcess.February2021.Web", Version = "v1" });
+                c.ExampleFilters();
+
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
+
+            services.AddSwaggerExamplesFromAssemblyOf<Startup>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
