@@ -18,9 +18,38 @@ namespace Hahn.ApplicatonProcess.February2021.Web
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureLogging(logging =>
+                {
+                    //logging.ClearProviders();
+                    //logging.AddConsole();
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        //public static IHostBuilder CreateHostBuilder(string[] args) =>
+        //    Host.CreateDefaultBuilder(args)
+        //        .ConfigureWebHostDefaults(webBuilder =>
+        //        {
+        //            webBuilder.UseStartup<Startup>().UseKestrel(options =>
+        //            {
+        //                int port = 5543;
+        //                if (args.Length > 0)
+        //                    int.TryParse(args[0], out port);
+        //                if (args.Length > 2)
+        //                {
+        //                    options.ListenAnyIP(port, listenOptions =>
+        //                    {
+        //                        listenOptions.UseHttps(args[0], args[2]);
+        //                    });
+        //                }
+        //                else
+        //                {
+        //                    options.ListenAnyIP(port);
+        //                }
+
+        //            });
+        //        });
     }
 }

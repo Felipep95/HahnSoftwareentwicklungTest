@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "f1AXPs6OuRIiBPrEcQ4V3FtCGKF1Ty19d2mDoKKB6KtDa6ncWzbCB+8zTzAyB+6MtI/EVKARckGull+hVY06rw==",
+  "dgSpecHash": "5rp1XmWa27/yc1ariNNxZKrivwFO4rEpR4P3FJrFI+RjbBiFQSg8hsY46tzuU96cENXKU2s/sX4hu4977i/XzQ==",
   "success": true,
   "projectFilePath": "A:\\Studies\\Hahn_Softwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.February2021.Web\\Hahn.ApplicatonProcess.February2021.Web.csproj",
   "expectedPackageFiles": [
@@ -28,6 +28,7 @@
     "C:\\Users\\Felipe\\.nuget\\packages\\microsoft.netcore.platforms\\1.0.1\\microsoft.netcore.platforms.1.0.1.nupkg.sha512",
     "C:\\Users\\Felipe\\.nuget\\packages\\microsoft.netcore.targets\\1.0.1\\microsoft.netcore.targets.1.0.1.nupkg.sha512",
     "C:\\Users\\Felipe\\.nuget\\packages\\microsoft.openapi\\1.1.4\\microsoft.openapi.1.1.4.nupkg.sha512",
+    "C:\\Users\\Felipe\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.13\\microsoft.visualstudio.azure.containers.tools.targets.1.10.13.nupkg.sha512",
     "C:\\Users\\Felipe\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Felipe\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\Felipe\\.nuget\\packages\\runtime.native.system\\4.0.0\\runtime.native.system.4.0.0.nupkg.sha512",

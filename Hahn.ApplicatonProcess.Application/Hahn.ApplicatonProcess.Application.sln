@@ -17,8 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicatonProcess.Febr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A6DA36B6-CC6F-405B-AECE-220E811A82BA}"
 	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
 		.gitignore = .gitignore
 	EndProjectSection
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{4694DFA0-F3EA-4ABA-91BA-01BECF69F751}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +41,10 @@ Global
 		{FD00D977-5D3D-4944-913E-F936215483E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD00D977-5D3D-4944-913E-F936215483E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD00D977-5D3D-4944-913E-F936215483E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4694DFA0-F3EA-4ABA-91BA-01BECF69F751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4694DFA0-F3EA-4ABA-91BA-01BECF69F751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4694DFA0-F3EA-4ABA-91BA-01BECF69F751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4694DFA0-F3EA-4ABA-91BA-01BECF69F751}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
